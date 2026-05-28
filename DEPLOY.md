@@ -38,6 +38,34 @@ Para producao, edite `config.js` ou gere esse arquivo no deploy usando:
 LOGICODE_ADMIN_PASSWORD
 ```
 
+## Deploy no Vercel
+
+Este projeto ja possui `vercel.json` e pode ser publicado como site estatico.
+
+### Pela interface da Vercel
+
+1. Acesse <https://vercel.com>.
+2. Clique em **Add New Project**.
+3. Importe o repositorio GitHub `Tr3mbolon4/Logistica-hevi`.
+4. Nas configuracoes, use:
+
+```text
+Framework Preset: Other
+Build Command: vazio ou npm run vercel-build
+Output Directory: ./
+Install Command: vazio ou npm install
+```
+
+5. Clique em **Deploy**.
+
+### Pela CLI da Vercel
+
+```bash
+npm i -g vercel
+vercel
+vercel --prod
+```
+
 ## Deploy no Emergent
 
 1. Envie a pasta `Logistica-hevi`.
@@ -53,3 +81,5 @@ npm start
 ## Observacao importante
 
 A leitura real por camera depende de HTTPS em producao. Em `localhost` funciona para testes; hospedado, use o dominio HTTPS da plataforma.
+
+Na Vercel o dominio publicado ja usa HTTPS, entao a camera do celular pode pedir permissao normalmente.

@@ -34,6 +34,7 @@ Tambem e possivel alterar a senha no painel `Configuracoes`; a alteracao fica sa
 - `assets/`: pasta opcional para imagens institucionais da escola.
 - `serve-local.js`: servidor Node.js para hospedagem.
 - `package.json`: scripts para rodar em plataformas como Emergent.
+- `vercel.json`: configuracao pronta para deploy na Vercel.
 - `DEPLOY.md`: instrucoes de hospedagem.
 
 ## Modulos incluidos
@@ -84,3 +85,13 @@ As telas Estoque, Movimentacao, Saida, Inventario e Conferencia possuem botao "L
 Esta entrega e um prototipo estatico preparado para apresentacao e evolucao. Os dados sao persistidos localmente no navegador com `localStorage`, simulando banco de dados para o TCC. Para producao, recomenda-se conectar a um banco real e API com autenticacao.
 
 Para uso da camera em hospedagem, publique em HTTPS. Navegadores de celular normalmente bloqueiam camera em paginas sem HTTPS.
+
+## Deploy na Vercel
+
+Importe o repositorio no painel da Vercel e use:
+
+- Framework Preset: `Other`
+- Build Command: vazio ou `npm run vercel-build`
+- Output Directory: `./`
+
+A Vercel fornece HTTPS automaticamente, necessario para a camera funcionar no celular.

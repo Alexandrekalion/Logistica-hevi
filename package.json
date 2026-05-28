@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node serve-local.js",
     "dev": "node serve-local.js",
+    "vercel-build": "echo Static project ready for Vercel",
     "check": "node --check app.js"
   },
   "keywords": [
