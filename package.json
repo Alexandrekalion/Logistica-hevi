@@ -1,0 +1,21 @@
+{
+  "name": "logicode-academy",
+  "version": "1.0.0",
+  "description": "Plataforma educacional de logistica, WMS, QR Code, codigo de barras e rastreabilidade para TCC.",
+  "main": "serve-local.js",
+  "scripts": {
+    "start": "node serve-local.js",
+    "dev": "node serve-local.js",
+    "check": "node --check app.js"
+  },
+  "keywords": [
+    "logistica",
+    "wms",
+    "tcc",
+    "qr-code",
+    "codigo-de-barras",
+    "estoque"
+  ],
+  "author": "LogiCode Academy",
+  "license": "MIT"
+}
