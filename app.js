@@ -1,4 +1,4 @@
-let ADMIN_PASSWORD = window.LOGICODE_ADMIN_PASSWORD || localStorage.getItem("logicodeAdminPassword") || "LR1a2b3c4567@";
+let ADMIN_PASSWORD = window.LOGICODE_ADMIN_PASSWORD || localStorage.getItem("logicodeAdminPassword") || "";
 
 const nowText = () => new Date().toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" });
 const uid = () => Date.now() + Math.floor(Math.random() * 1000);
@@ -179,6 +179,7 @@ function login() {
     const pass = document.getElementById("loginPass").value;
     const found = state.users.find(u => u.login === loginValue);
     if (!found) return alert("Usuario nao encontrado.");
+    if (found.login === "administrador" && !ADMIN_PASSWORD) return alert("Acesso administrativo nao configurado. Defina uma senha local de demonstracao antes de entrar.");
     if (found.login === "administrador" && pass !== ADMIN_PASSWORD) return alert("Senha do administrador incorreta.");
     state.user = found;
     dashboard();
