@@ -1,97 +1,92 @@
 # LogiCode Academy
 
-Sistema web responsivo para TCC em Logistica, com simulacao educacional de WMS, QR Code, codigo de barras, recebimento, conferencia, estoque, movimentacao, saida, inventario, pedidos, docas, transportadoras, certificados, atividades, pontuacao, aprendizado, historico e relatorios.
+Plataforma educacional para simular rotinas logisticas, WMS, rastreabilidade, leitura de codigos e acompanhamento de atividades.
 
-## Como abrir
+## Visao Geral
 
-Abra o arquivo `index.html` em um navegador moderno.
+O projeto apresenta uma aplicacao web estatica voltada a aprendizado e demonstracao de processos logisticos. Pelo conteudo do repositorio, a solucao organiza telas para recebimento, conferencia, estoque, movimentacao, saida, inventario, pedidos, docas, transportadoras, atividades, ranking, certificados e relatorios.
 
-Ou rode como servidor local:
+## Problema Resolvido
 
-```bash
-npm start
+Estudantes, professores e equipes em treinamento precisam visualizar fluxos logisticos de forma pratica. A aplicacao cria um ambiente demonstrativo para entender como produtos, codigos, movimentacoes e historicos se conectam dentro de uma operacao.
+
+## Beneficios
+
+- Facilita a apresentacao didatica de processos logisticos.
+- Simula rotinas de WMS sem depender de infraestrutura complexa.
+- Apoia aulas, treinamentos e demonstracoes de TCC.
+- Usa QR Code e codigo de barras para reforcar conceitos de rastreabilidade.
+- Permite explorar historico, relatorios e atividades em uma interface unica.
+
+## Principais Funcionalidades
+
+### Funcionalidades Disponiveis
+
+- Home institucional e apresentacao do projeto.
+- Login e perfis por setor.
+- Dashboard logistico.
+- Cadastro e consulta de produtos.
+- Recebimento, conferencia, movimentacao, saida e inventario.
+- Pedidos, picking, docas e transportadoras.
+- Leitura de QR Code e codigo de barras.
+- Historico geral e historico por produto.
+- Atividades, missoes, pontuacao e ranking.
+- Certificados.
+- Relatorios com exportacao simulada.
+- Persistencia local no navegador.
+
+### Funcionalidades Planejadas
+
+- Conexao com banco de dados real e API de autenticacao aparecem como evolucao recomendada no conteudo do projeto.
+
+## Como Funciona
+
+```text
+Usuario acessa a aplicacao
+-> escolhe perfil ou setor
+-> cadastra ou consulta produtos
+-> simula recebimento, conferencia, estoque e saida
+-> usa codigos para rastreabilidade
+-> historicos, atividades e relatorios consolidam o aprendizado
 ```
 
-Depois acesse `http://localhost:5178`.
+## Tecnologias Utilizadas
 
-Login inicial:
+- JavaScript
+- HTML
+- CSS
+- Node.js
+- LocalStorage
+- BarcodeDetector API
 
-- Usuario: `administrador`
-- Senha: `LR1a2b3c4567@`
+## Arquitetura
 
-## Configuracao da senha
+```mermaid
+flowchart LR
+    Usuario["Usuario / Aluno / Professor"] --> App["Aplicacao web estatica"]
+    App --> Dados["LocalStorage"]
+    App --> Scanner["QR Code / Codigo de barras"]
+    App --> Relatorios["Relatorios e historicos"]
+```
 
-O prototipo usa `config.js` para expor `window.LOGICODE_ADMIN_PASSWORD`. Em hospedagens com build/server, gere esse arquivo usando a variavel de ambiente `LOGICODE_ADMIN_PASSWORD`.
-
-Tambem e possivel alterar a senha no painel `Configuracoes`; a alteracao fica salva no navegador via `localStorage`.
-
-## Estrutura
+## Estrutura Do Projeto
 
 - `index.html`: entrada da aplicacao.
-- `styles.css`: layout responsivo inspirado na imagem enviada.
+- `styles.css`: estilos e layout responsivo.
 - `app.js`: telas, dados demonstrativos e interacoes.
 - `config.js`: configuracao inicial.
-- `assets/`: pasta opcional para imagens institucionais da escola.
-- `serve-local.js`: servidor Node.js para hospedagem.
-- `package.json`: scripts para rodar em plataformas como Emergent.
-- `vercel.json`: configuracao pronta para deploy na Vercel.
-- `DEPLOY.md`: instrucoes de hospedagem.
+- `assets/`: imagens e materiais visuais.
+- `serve-local.js`: servidor local em Node.js.
+- `DEPLOY.md`: orientacoes de hospedagem existentes.
 
-## Modulos incluidos
+## Status
 
-- Home institucional e pagina Sobre o Projeto TCC.
-- Login com administrador inicial.
-- Dashboard logistico.
-- Codigos Logisticos com QR Code, codigo de barras e camera.
-- Recebimento de produtos com lote, validade, avaria, fotos e endereco logistico.
-- Conferencia por setor, com validacao de lote, validade, quantidade, estado e foto.
-- Estoque geral com busca, filtros simulados, mapa do armazem e rastreabilidade.
-- Movimentacao interna por QR Code/codigo de barras.
-- Saida de produtos por QR Code/codigo de barras e comprovante.
-- Inventario educacional com divergencia fisico x sistema.
-- Pedidos de cliente e picking.
-- Docas e transportadoras.
-- Historico geral obrigatorio com produto, codigo, acao, origem, destino, quantidade, responsavel, perfil, data/hora, observacao e foto quando houver.
-- Atividades, missoes e ranking.
-- Aprendizado Logistico e Logistica 4.0.
-- Certificados.
-- Relatorios com exportacao simulada para PDF e Excel.
+Prototipo educacional em desenvolvimento/manutencao. O projeto e adequado para demonstracao de conceitos logisticos, mas exige revisao de seguranca antes de uso publico amplo.
 
-## Perfis por setor
+## Minha Participacao
 
-Os usuarios podem ser liberados para Recebimento, Conferencia, Estoque, Separacao, Expedicao, Avaria, Professor ou Administrador. Administrador e Professor conseguem navegar por todos os setores. Alunos ficam bloqueados nos setores nao liberados.
+Desenvolvimento e organizacao de uma experiencia educacional para demonstrar fluxos logisticos, rastreabilidade, leitura de codigos, historicos e atividades em ambiente web.
 
-## Scanner
+## Autor
 
-As telas Estoque, Movimentacao, Saida, Inventario e Conferencia possuem botao "Ler QR Code / Codigo de Barras". Em navegadores com suporte a `BarcodeDetector`, a leitura usa camera. Em navegadores sem esse recurso, o sistema abre a camera e oferece campo manual para demonstracao do codigo lido.
-
-## Testes realizados
-
-- Login administrador.
-- Criacao de aluno com setor liberado.
-- Cadastro de produto.
-- Geracao visual de QR Code.
-- Abertura do scanner e busca manual por codigo.
-- Movimentacao por codigo.
-- Saida por codigo.
-- Historico na ficha do produto.
-- Historico geral com busca.
-- Relatorios com botoes PDF e Excel.
-- Bloqueio de permissao por setor.
-- Layout em largura de celular com menu inferior.
-
-## Observacoes
-
-Esta entrega e um prototipo estatico preparado para apresentacao e evolucao. Os dados sao persistidos localmente no navegador com `localStorage`, simulando banco de dados para o TCC. Para producao, recomenda-se conectar a um banco real e API com autenticacao.
-
-Para uso da camera em hospedagem, publique em HTTPS. Navegadores de celular normalmente bloqueiam camera em paginas sem HTTPS.
-
-## Deploy na Vercel
-
-Importe o repositorio no painel da Vercel e use:
-
-- Framework Preset: `Other`
-- Build Command: vazio ou `npm run vercel-build`
-- Output Directory: `./`
-
-A Vercel fornece HTTPS automaticamente, necessario para a camera funcionar no celular.
+Desenvolvido por Michele Santana — Kalion Tecnologia
