@@ -89,4 +89,4 @@ Desenvolvimento e organizacao de uma experiencia educacional para demonstrar flu
 
 ## Autor
 
-Desenvolvido por Michele Santana — Kalion Tecnologia
+Desenvolvido por Alexandre Santana dos Santos — Kalion Tecnologia
